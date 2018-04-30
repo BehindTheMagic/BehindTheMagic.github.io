@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Launcher from '@/components/Launcher/Launcher.vue'
+import App from '@/App.vue'
 import router from './router'
 import VueI18n from 'vue-i18n'
 
@@ -17,8 +18,13 @@ new Vue({
     fallbackLocale: 'en',
     messages: {}
   }),
-  data () { return { locale: this.$i18n.locale } },
+  data () {
+    return {
+      locale: this.$i18n.locale,
+      currentView: 'Launcher'
+    }
+  },
   router,
-  template: '<Launcher/>',
-  components: { Launcher }
+  template: '<component :is="currentView"></component>',
+  components: { Launcher, App }
 })
