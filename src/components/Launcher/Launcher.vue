@@ -12,12 +12,12 @@
 <template>
   <div class="launcher">
     <img class="splash" alt="splashscreen" src="@/components/Launcher/splash.png">
-    <audio ref="r2beep" src="@/components/Launcher/r2beep.mp3"></audio>
+    <audio ref="audio-r2beep" src="@/components/Launcher/r2beep.mp3"></audio>
     <form>
       <label><input v-model="locale" type="radio" value="en"><img alt="English" src="@/components/Launcher/English.svg"></label>
       <label><input v-model="locale" type="radio" value="fr"><img alt="Français" src="@/components/Launcher/French.svg"></label>
     </form>
-    <button @click="start">{{ $t('start') }}</button> 
+    <button ref="btn-start" @click="start">{{ $t('start') }}</button>
   </div>
 </template>
 
@@ -32,7 +32,12 @@ export default {
   },
   methods: {
     start () {
-      this.$refs.r2beep.play()
+      let that = this
+      this.$refs['btn-start'].disabled = true
+      this.$refs['audio-r2beep'].onended = function () {
+        that.$parent.$data.currentView = 'App'
+      }
+      this.$refs['audio-r2beep'].play()
     }
   },
   watch: {
