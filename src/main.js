@@ -21,10 +21,16 @@ new Vue({
   data () {
     return {
       locale: this.$i18n.locale,
-      currentView: 'Launcher'
+      currentGlobalView: 'Launcher'
+    }
+  },
+  methods: {
+    setLocale (locale) {
+      this.$data.locale = locale
+      this.$i18n.locale = locale
     }
   },
   router,
-  template: '<component :is="currentView"></component>',
+  template: '<component :is="currentGlobalView" v-bind="{locale}"></component>',
   components: { Launcher, App }
 })
