@@ -71,7 +71,7 @@ export default {
         'ArrowRight': this.isNavbarVisible && this.stackNext.length !== 0 ? this.goNext : emptyFn,
         'ArrowUp': this.isNavbarVisible && this.$router.currentRoute.fullPath !== '/' ? this.goUp : emptyFn
       }
-      if (cases[e.code]) {
+      if (!e.shiftKey && !e.ctrlKey && !e.altKey && cases[e.code]) {
         cases[e.code]()
       }
     },
