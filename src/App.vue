@@ -21,8 +21,7 @@
 
 <template>
   <div id="app">
-    <video ref="videoPlayer"></video>
-    <router-view class="view"></router-view>
+    <router-view v-show="isRouterViewVisible" class="view"></router-view>
     <div class="navbar" v-if="isNavbarVisible">
       <label><button :disabled="this.$router.currentRoute.fullPath === '/'" class="home" @click="goHome"></button>{{ $t('home') }}</label>
       <label><button :disabled="stackPrev.length === 0" class="prev" @click="goPrev"></button>{{ $t('prev') }}</label>
@@ -31,6 +30,10 @@
       <label><button class="controls" @click="openControls"></button>{{ $t('controls') }}</label>
       <label><button :disabled="this.$router.currentRoute.fullPath.substr(-3) === 'map'" class="map" @click="goMap"></button>{{ $t('map') }}</label>
     </div>
+    <video ref="videoPlayer"
+    v-show="isVideoPlayerActive"
+    @keyup.esc="this.endVideoPlayer"
+    @keyup.space="this.togglePlayPauseVideoPlayer"></video>
   </div>
 </template>
 
@@ -38,22 +41,48 @@
 export default {
   name: 'App',
   props: ['locale'],
+  mounted () {
+    window.addEventListener('keyup', this.keyupManager)
+    if (this.$route.name === 'MainMenu') {
+      this.$nextTick(function () {
+        this.introMainMenu()
+      })
+    } else {
+      this.isNavbarVisible = true
+      this.isRouterViewVisible = true
+    }
+  },
   data () {
     return {
       stackPrev: [],
       stackNext: [],
-      isNavbarVisible: true
+      isNavbarVisible: false,
+      isRouterViewVisible: false,
+      isVideoPlayerActive: false
     }
   },
   methods: {
+    keyupManager (e) {
+      let emptyFn = function () { }
+      let cases = {
+        'Escape': this.isVideoPlayerActive ? this.endVideoPlayer : emptyFn,
+        'Space': this.isVideoPlayerActive ? this.togglePlayPauseVideoPlayer : emptyFn,
+        'ArrowLeft': this.isNavbarVisible && this.stackPrev.length !== 0 ? this.goPrev : emptyFn,
+        'ArrowRight': this.isNavbarVisible && this.stackNext.length !== 0 ? this.goNext : emptyFn,
+        'ArrowUp': this.isNavbarVisible && this.$router.currentRoute.fullPath !== '/' ? this.goUp : emptyFn
+      }
+      if (cases[e.code]) {
+        cases[e.code]()
+      }
+    },
     goHome () {
       this.$data.stackNext = []
       this.$router.replace('/')
     },
     goPrev () {
-      // breaks with watch $route without preventing it
-      let prev = this.$data.stackPrev[this.$data.stackPrev.length - 1]
       this.$data.stackNext.push(this.$router.currentRoute.fullPath)
+      let prev = this.$data.stackPrev[this.$data.stackPrev.length - 1]
+      this.$data.stackPrev[this.$data.stackPrev.length - 1] = 'TOREMOVE' // prevent history loop when watching $route
       this.$router.replace(prev)
     },
     goNext () {
@@ -62,9 +91,9 @@ export default {
     },
     goUp () {
       let fullPath = this.$router.currentRoute.fullPath
-      this.$data.stackNext = []
       let location = fullPath.substring(0, fullPath.substring(0, fullPath.length - 1).lastIndexOf('/') + 1)
       this.$router.replace(location)
+      this.$data.stackNext = []
     },
     goMap () {
       this.$data.stackNext = []
@@ -73,6 +102,34 @@ export default {
     },
     openControls () {
       // TODO
+    },
+    showVideoPlayer (src, cb) {
+      let callback = cb || function () { }
+      let videoPlayer = this.$refs['videoPlayer']
+
+      videoPlayer.src = src
+      videoPlayer.currentTime = 0
+
+      this.isVideoPlayerActive = true
+      videoPlayer.onended = (videoPlayer) => {
+        this.isVideoPlayerActive = false
+        callback()
+      }
+
+      videoPlayer.play()
+    },
+    togglePlayPauseVideoPlayer () {
+      let videoPlayer = this.$refs['videoPlayer']
+      videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause()
+    },
+    endVideoPlayer () {
+      this.$refs['videoPlayer'].currentTime = this.$refs['videoPlayer'].duration
+    },
+    introMainMenu () {
+      this.showVideoPlayer('static/intrbtm.mp4', () => {
+        this.isNavbarVisible = true
+        this.isRouterViewVisible = true
+      })
     }
   },
   watch: {
@@ -81,7 +138,7 @@ export default {
       this.root.locale = val
     },
     '$route' (to, from) {
-      if (to.fullPath === this.$data.stackPrev[this.$data.stackPrev.length - 1]) {
+      if (this.$data.stackPrev[this.$data.stackPrev.length - 1] === 'TOREMOVE') {
         this.$data.stackPrev.pop()
       } else {
         this.$data.stackPrev.push(from.fullPath)
@@ -132,7 +189,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 640px; height: 480px;
-  border: 1px solid gray;
   position: relative;
 }
 
@@ -179,7 +235,7 @@ export default {
 
   background-color: #f0f0f0;
   border-radius: 50%;
-  margin-right: 2px;
+  margin-right: 5px;
   outline: none;
 
   background-size: 18px 18px;
@@ -191,5 +247,9 @@ export default {
 
 .navbar button[disabled] {
   background-color: #808080;
+}
+
+video {
+  position: absolute;
 }
 </style>

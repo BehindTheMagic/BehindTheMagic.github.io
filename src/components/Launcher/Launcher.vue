@@ -34,7 +34,7 @@ export default {
       let that = this
       this.$refs['btn-start'].disabled = true
       this.$refs['audio-r2beep'].onended = function () {
-        that.$parent.$data.currentGlobalView = 'App'
+        that.$root.currentGlobalView = 'App'
       }
       this.$refs['audio-r2beep'].play()
     }

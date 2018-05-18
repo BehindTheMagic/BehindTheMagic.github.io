@@ -10,6 +10,13 @@ Vue.use(VueI18n)
 
 Vue.config.productionTip = false
 
+Vue.directive('play', {
+  inserted: function (el) {
+    el.currentTime = 0
+    el.play()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

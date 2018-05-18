@@ -40,7 +40,7 @@
       <hr>
       <router-link to="glossary/"><div>{{ $t('glossary') }}</div></router-link>
     </nav>
-    <!--<video src="MainMenu.mp4" loop></video>" -->
+    <video v-if="!this.$parent.isVideoPlayerActive" v-play src="@/components/MainMenu/MAINANIM.mp4" loop></video>
   </div>
 </template>
 
@@ -50,9 +50,6 @@ export default {
   props: ['locale', 'isNavbarVisible'],
   data () {
     return {}
-  },
-  methods: {
-
   }
 }
 </script>
