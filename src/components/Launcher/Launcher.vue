@@ -4,7 +4,7 @@
     "start": "Start Star Wars: Behind The Magic"
   },
   "fr": {
-    "start": "Lancer Star Wars: Le Mythe et sa Magie"
+    "start": "Lancer Star Wars : Le Mythe et sa Magie"
   }
 }
 </i18n>
@@ -23,11 +23,10 @@
 
 <script>
 export default {
-  inherit: true,
   name: 'Launcher',
   data () {
     return {
-      locale: this.$parent.locale
+      locale: this.$root.locale
     }
   },
   methods: {
@@ -35,14 +34,14 @@ export default {
       let that = this
       this.$refs['btn-start'].disabled = true
       this.$refs['audio-r2beep'].onended = function () {
-        that.$parent.$data.currentView = 'App'
+        that.$root.currentGlobalView = 'App'
       }
       this.$refs['audio-r2beep'].play()
     }
   },
   watch: {
     locale (val) {
-      this.$i18n.locale = val
+      this.$root.setLocale(val)
     }
   }
 }
