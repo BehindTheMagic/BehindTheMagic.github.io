@@ -6,7 +6,8 @@
     "next": "Next",
     "up": "Up Level",
     "controls": "Controls",
-    "map": "Map"
+    "map": "Map",
+    "btnclose": "Done"
   },
   "fr": {
     "home": "Menu",
@@ -30,10 +31,7 @@
       <label><button class="controls" @click="openControls"></button>{{ $t('controls') }}</label>
       <label><button :disabled="this.$router.currentRoute.fullPath.substr(-3) === 'map'" class="map" @click="goMap"></button>{{ $t('map') }}</label>
     </div>
-    <video ref="videoPlayer"
-    v-show="isVideoPlayerActive"
-    @keyup.esc="this.endVideoPlayer"
-    @keyup.space="this.togglePlayPauseVideoPlayer"></video>
+    <video ref="videoPlayer" v-show="isVideoPlayerActive"></video>
   </div>
 </template>
 
@@ -181,6 +179,34 @@ export default {
     font-weight: normal;
     font-style: normal;
 
+}
+
+a {
+  text-decoration:none;
+}
+
+.btn-close {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 10px;
+    background-color: white;
+    border-color: white;
+    z-index: inherit;
+    font-family: monospace;
+    color: black;
+    font-size: 14px;
+}
+.btn-close:after{
+    content: attr(data-text);
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: -4px;
+    font-size: 8px;
+    z-index: inherit;
 }
 </style>
 
