@@ -99,7 +99,7 @@ export default {
       this.$router.replace(fullPath + (fullPath[fullPath.length - 1] === '/' ? 'map' : '/map'))
     },
     openControls () {
-      // TODO
+      // this.$root.locale === 'en' ? this.$root.setLocale('fr') : this.$root.setLocale('en')
     },
     showVideoPlayer (src, cb) {
       let callback = cb || function () { }
@@ -133,7 +133,6 @@ export default {
   watch: {
     locale (val) {
       this.$i18n.locale = val
-      this.root.locale = val
     },
     '$route' (to, from) {
       if (this.$data.stackPrev[this.$data.stackPrev.length - 1] === 'TOREMOVE') {
