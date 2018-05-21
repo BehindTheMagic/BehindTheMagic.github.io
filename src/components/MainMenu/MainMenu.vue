@@ -67,8 +67,8 @@ video{
 
 nav{
   position: absolute;
-  top: 20px; left: 0; bottom: 0;
-  width: 260px; height: 100%;
+  top: 20px;
+  width: 260px;
 }
 hr{
   width: 220px;
