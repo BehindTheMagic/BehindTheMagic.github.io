@@ -439,7 +439,7 @@ input{
   background-color: #E0E0E0;
 }
 
-.topic:active, .references:hover{
+.topic:active, .references:active{
   box-shadow: inset #808080 2px 2px 4px;
 }
 
