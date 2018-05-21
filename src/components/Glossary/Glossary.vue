@@ -154,7 +154,7 @@
     <audio v-play src="@/components/Scenes/Lost/lost.snm.mp3" ></audio>
     <span class="glossarytitle">{{ $t('glossary') }}</span>
     <button class="fprev" @click="search(-1)">{{ $t('fprev') }} &#9664;</button>
-    <input ref="searchstr" type="text" style="text-align:center;" :placeholder="$t('search')">
+    <input ref="searchstr" type="text" style="text-align:center;" @keyup.enter="search(1)" :placeholder="$t('search')">
     <button class="fnext" @click="search(1)">&#9654; {{ $t('fnext') }}</button>
 
     <select v-model="selectedCategory" class="categories" size="5">
