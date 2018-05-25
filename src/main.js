@@ -11,9 +11,19 @@ Vue.use(VueI18n)
 Vue.config.productionTip = false
 
 Vue.directive('play', {
-  inserted: function (el) {
-    el.currentTime = 0
-    el.play()
+  inserted: function (el, binding, vnode) {
+    vnode.context.$nextTick(function () {
+      if (!vnode.context.$parent.isVideoPlayerActive) {
+        el.currentTime = 0
+        el.play()
+        return
+      }
+      // Else we need to wait for the bool isVideoPlayerActive to change to false
+      vnode.context.$parent.$watch('isVideoPlayerActive', function (e) {
+        el.currentTime = 0
+        el.play()
+      })
+    })
   }
 })
 
