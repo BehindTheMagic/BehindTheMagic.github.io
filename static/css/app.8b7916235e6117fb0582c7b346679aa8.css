@@ -1,0 +1,172 @@
+.launcher[data-v-4ef71ba3]{width:310px;margin:0 auto}input[data-v-4ef71ba3]{display:none}.splash[data-v-4ef71ba3],button[data-v-4ef71ba3],form[data-v-4ef71ba3]{width:100%;padding:0}.splash[data-v-4ef71ba3]{height:auto}form[data-v-4ef71ba3]{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:space-evenly;justify-content:space-evenly}label[data-v-4ef71ba3]{cursor:pointer;display:inline-block;height:36px;width:auto}label img[data-v-4ef71ba3]{width:inherit;height:inherit}input:checked+img[data-v-4ef71ba3]{box-shadow:0 0 10px #fff}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!
+ * Web Fonts from Fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2018 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      FontSite Inc.
+ * License URL: https://www.fontspring.com/licenses/fontsite/webfont
+ *
+ *
+ */@font-face{font-family:Mech;src:url(/static/fonts/MechMonoline-webfont.731a0ca.woff2) format("woff2"),url(/static/fonts/MechMonoline-webfont.c05c7f0.woff) format("woff");font-weight:400;font-style:normal}a{text-decoration:none}.btn-close{width:15px;height:15px;border-radius:50%;padding:0;font-size:10px;background-color:#fff;border-color:#fff;font-family:monospace;color:#000;font-size:14px}.btn-close,.btn-close:after{position:absolute;z-index:inherit}.btn-close:after{content:attr(data-text);color:#fff;top:15px;left:-4px;font-size:8px}#app[data-v-128cb969]{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;width:640px;height:480px;position:relative}.view[data-v-128cb969]{width:100%;height:100%;position:absolute;top:0;left:0}.navbar[data-v-128cb969]{position:absolute;top:456px;left:46px;right:46px;height:15px;background-color:hsla(0,0%,50%,.6);box-shadow:inset 1px 1px 3px 0 #fff;border-radius:8px;font-family:sans-serif;font-size:10px}.navbar[data-v-128cb969],.navbar label[data-v-128cb969]{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:space-evenly;justify-content:space-evenly;-ms-flex-align:center;align-items:center}.navbar button[data-v-128cb969]{width:18px;height:18px;box-shadow:inset 0 0 0 1px #000;border:none;background-color:#f0f0f0;border-radius:50%;margin-right:5px;outline:none;background-size:18px 18px}.navbar button[data-v-128cb969]:active{background-color:#a0a0a0}.navbar button[disabled][data-v-128cb969]{background-color:gray}video[data-v-128cb969]{position:absolute}.mainmenu[data-v-78836012]{background-image:url(/static/img/MAINMENU.94287b0.jpg)}video[data-v-78836012]{position:absolute;top:102px;left:257px}nav[data-v-78836012]{position:absolute;top:20px;width:260px}hr[data-v-78836012]{width:220px;background-color:#fff;margin-left:28px;margin-right:14px}a[data-v-78836012]{text-decoration:none}a div[data-v-78836012]{width:235px;height:37px;margin-left:20px;margin-bottom:8px;margin-right:5px;color:#fff;border:1px solid hsla(0,0%,100%,.7);background-color:rgba(0,0,0,.7);border-radius:50px;letter-spacing:1px;font-family:Mech;font-size:20px;line-height:37px;text-align:center}a:focus>div[data-v-78836012],a:hover>div[data-v-78836012]{background-color:rgba(0,0,0,.9);border-color:#fff}.mainmenu_map[data-v-477c6b00]{background-image:url(/static/img/MAINMAP.1f4c726.jpg)}span[data-v-477c6b00]{color:#fff;top:36px;left:50%;transform:translateX(-50%);text-align:center;font-size:30px}.main[data-v-477c6b00],span[data-v-477c6b00]{position:absolute;font-family:Mech;letter-spacing:1px}.main[data-v-477c6b00]{color:#a0f0d8;font-size:20px}ul[data-v-477c6b00]{position:absolute;padding-left:0;margin:5px}.sub[data-v-477c6b00]{color:#c8c8c8;font-family:sans-serif;font-size:10px;display:block;padding:1px 0}a[data-v-477c6b00]:focus,a[data-v-477c6b00]:hover{color:#fff}.mchars[data-v-477c6b00]{top:60px;left:143px;padding:5px 38px 5px 0}.chars[data-v-477c6b00]{top:82px;left:74px;text-align:right}.mtech[data-v-477c6b00]{top:152px;left:80px;padding:5px 38px 5px 0}.tech[data-v-477c6b00]{top:180px;left:80px;text-align:right}.mlocs[data-v-477c6b00]{top:258px;left:90px;padding:5px 58px 5px 0}.mevts[data-v-477c6b00]{left:466px;padding:5px 0 5px 38px;top:152px}.mep1[data-v-477c6b00]{left:396px;padding:5px 0 5px 38px;top:60px}.mscenes[data-v-477c6b00]{top:338px;left:117px;padding:5px 38px 5px 0}.scenes[data-v-477c6b00]{top:364px;left:90px;text-align:right}.mbehind[data-v-477c6b00]{left:403px;padding:5px 0 5px 38px;top:338px}.behind[data-v-477c6b00]{left:455px;top:360px}.mexpd[data-v-477c6b00]{left:462px;padding:5px 0 5px 38px;top:258px}.expd[data-v-477c6b00]{left:510px;top:280px}.mglos[data-v-477c6b00]{left:295px;padding:38px 0 0;top:366px}.close[data-v-477c6b00]{top:15px;left:610px}.glossary[data-v-3344a460]{background-image:url(/static/img/GLOSBACK.b0f40d1.jpg)}span[data-v-3344a460]{font-family:Mech;font-size:30px;color:#fff;letter-spacing:1px;position:absolute}.glossarytitle[data-v-3344a460]{top:5px;left:10px}select[data-v-3344a460]{position:absolute;left:5px;background-color:#000;color:#ccc;border:4px solid #000;width:173px;overflow-y:scroll;overflow-x:hidden;text-overflow:ellipsis;font-size:11px;padding:2px}.categories[data-v-3344a460]{top:40px}.entries[data-v-3344a460]{top:132px}button[data-v-3344a460]{background-color:transparent;border:none;position:absolute;color:#fff;font-size:12px}.fprev[data-v-3344a460]{left:260px;border-radius:15px 0 0 0}.fnext[data-v-3344a460],.fprev[data-v-3344a460]{top:12px;background-color:#000;width:75px;height:19px;white-space:nowrap}.fnext[data-v-3344a460]{left:530px;border-radius:0 15px 0 0}.prevent[data-v-3344a460]{top:57px}.nextent[data-v-3344a460],.prevent[data-v-3344a460]{left:415px;width:225px;height:20px;padding:0;background-color:rgba(96,24,24,.5)}.nextent[data-v-3344a460]{top:421px}input[data-v-3344a460]{position:absolute;top:12px;left:335px;width:195px;height:19px;font-size:10px}.name[data-v-3344a460]{top:85px;left:207px;display:block;width:433px;height:38px;padding-left:10px;background-color:rgba(0,0,0,.5);line-height:38px}.picture[data-v-3344a460]{position:absolute;top:140px;left:215px;width:120px;height:120px;border-radius:10%;box-shadow:3px 3px 10px #000;background-size:cover}.description[data-v-3344a460]{color:#fff;margin:0;font-size:12px;position:absolute;top:130px;left:347px;width:280px;height:280px;line-height:normal;word-spacing:2px;overflow-y:auto;text-align:justify;padding-right:10px}.topic[data-v-3344a460]{position:absolute;top:280px;left:230px;width:95px;height:20px;text-align:center;border-radius:10px;color:#303030;background-color:#fff;box-shadow:inset -2px -2px 4px gray;font-size:14px}.references[data-v-3344a460]:hover,.topic[data-v-3344a460]:hover{background-color:#e0e0e0}.references[data-v-3344a460]:active,.topic[data-v-3344a460]:active{box-shadow:inset 2px 2px 4px gray}.references[data-v-3344a460]{position:absolute;top:330px;left:230px;width:95px;height:20px;text-align:center;border-radius:10px;color:#303030;background-color:#fff;box-shadow:inset -2px -2px 4px gray;font-size:14px}
